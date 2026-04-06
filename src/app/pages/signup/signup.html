@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="card border-0 p-4" appCardHover>
+        <h2 class="text-center mb-4">Signup</h2>
+
+        <div class="alert alert-danger" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName">
+            <div class="text-danger mt-1" *ngIf="signupForm.get('firstName')?.touched && signupForm.get('firstName')?.errors?.['required']">
+              First name is required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName">
+            <div class="text-danger mt-1" *ngIf="signupForm.get('lastName')?.touched && signupForm.get('lastName')?.errors?.['required']">
+              Last name is required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+            <div class="text-danger mt-1" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']">
+              Email is required
+            </div>
+            <div class="text-danger mt-1" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']">
+              Enter a valid email
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password">
+            <div class="text-danger mt-1" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']">
+              Password is required
+            </div>
+            <div class="text-danger mt-1" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']">
+              Password must be at least 6 characters
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100" [disabled]="loading">
+            {{ loading ? 'Loading...' : 'Signup' }}
+          </button>
+        </form>
+
+        <div class="text-center mt-3">
+          <a routerLink="/login">Back to login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

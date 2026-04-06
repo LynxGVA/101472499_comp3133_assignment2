@@ -1,0 +1,83 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Employees</h2>
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="card border-0 p-3 mb-4" appCardHover>
+    <div class="row g-2">
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by department or position"
+          [(ngModel)]="searchText"
+        >
+      </div>
+      <div class="col-md-3 d-grid">
+        <button class="btn btn-primary" (click)="loadEmployees()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <button class="btn btn-success" (click)="goToAddEmployee()">Add Employee</button>
+  </div>
+
+  <div class="text-center my-4" *ngIf="loading">
+    Loading...
+  </div>
+
+  <div class="table-responsive" *ngIf="!loading">
+    <table class="table table-bordered table-hover align-middle" *ngIf="employees.length > 0; else noData">
+      <thead class="table-light">
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Position</th>
+          <th style="width: 220px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of employees">
+          <td>
+            <img
+              *ngIf="e.picture"
+              [src]="e.picture"
+              alt="employee"
+              width="60"
+              height="60"
+              style="object-fit: cover; border-radius: 8px;"
+            >
+            <span *ngIf="!e.picture">No image</span>
+          </td>
+          <td>{{ e | fullName }}</td>
+          <td>{{ e.email }}</td>
+          <td>{{ e.department }}</td>
+          <td>{{ e.position }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-1" (click)="openView(e)">View</button>
+            <button class="btn btn-warning btn-sm me-1" (click)="openEdit(e)">Update</button>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteEmployee(e.id)"
+              [disabled]="deletingId === e.id"
+            >
+              {{ deletingId === e.id ? 'Deleting...' : 'Delete' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noData>
+    <p>No employees found.</p>
+  </ng-template>
+</div>

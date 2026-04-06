@@ -1,0 +1,69 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card border-0 p-4" appCardHover>
+        <h2 class="mb-4">Add Employee</h2>
+
+        <div class="alert alert-danger" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName">
+            <div class="text-danger mt-1" *ngIf="form.get('firstName')?.touched && form.get('firstName')?.errors?.['required']">
+              First name is required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName">
+            <div class="text-danger mt-1" *ngIf="form.get('lastName')?.touched && form.get('lastName')?.errors?.['required']">
+              Last name is required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+            <div class="text-danger mt-1" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">
+              Email is required
+            </div>
+            <div class="text-danger mt-1" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']">
+              Enter a valid email
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Department</label>
+            <input type="text" class="form-control" formControlName="department">
+            <div class="text-danger mt-1" *ngIf="form.get('department')?.touched && form.get('department')?.errors?.['required']">
+              Department is required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Position</label>
+            <input type="text" class="form-control" formControlName="position">
+            <div class="text-danger mt-1" *ngIf="form.get('position')?.touched && form.get('position')?.errors?.['required']">
+              Position is required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Profile Picture</label>
+            <input type="file" class="form-control" (change)="onFileChange($event)" accept="image/*">
+          </div>
+
+          <button type="submit" class="btn btn-success w-100" [disabled]="loading">
+            {{ loading ? 'Saving...' : 'Add Employee' }}
+          </button>
+        </form>
+
+        <a routerLink="/employees" class="btn btn-secondary w-100 mt-3">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
