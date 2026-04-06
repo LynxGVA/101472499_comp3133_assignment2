@@ -1,59 +1,142 @@
-# 101472499Comp3133Assignment2
+# COMP 3133 Assignment 2
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.4.
+## Student Information
 
-## Development server
+* Name: Viktor Grygoriev
+* Student ID: 101472499
+* Course: COMP 3133 - Full Stack Development II
 
-To start a local development server, run:
+## Project Title
 
-```bash
+Employee Management System using Angular and GraphQL
+
+## Project Description
+
+This project is a full stack employee management system developed for COMP 3133 Assignment 2.
+
+The frontend is built with Angular and Bootstrap.
+The backend is built with Node.js, Express, Apollo Server, GraphQL, and MongoDB Atlas.
+
+The application allows users to sign up, log in, manage employee records, upload profile pictures, search employees by department or position, and perform full CRUD operations.
+
+## Main Features
+
+* User Signup with validation
+* User Login with validation
+* User Logout
+* Session token stored in localStorage
+* Display all employees in a table
+* Add new employee
+* View employee details
+* Update employee information
+* Delete employee
+* Search employee by department or position
+* Upload employee profile picture
+* Validation and error handling
+* Responsive UI using Bootstrap
+* Angular Routing
+* Angular Forms
+* Angular Service
+* Angular Pipe
+* Angular Directive
+* GraphQL API integration
+
+## Technologies Used
+
+### Frontend
+
+* Angular
+* TypeScript
+* Bootstrap
+* Axios
+
+### Backend
+
+* Node.js
+* Express
+* Apollo Server
+* GraphQL
+* MongoDB Atlas
+* Mongoose
+* JWT
+* bcryptjs
+
+## Project Structure
+
+This project uses a single repository containing both frontend and backend.
+
+* src/app/pages → UI pages
+* src/app/services → Angular services
+* src/app/pipes → custom pipe
+* src/app/directives → custom directive
+* backend → GraphQL backend server
+
+## Deployment Links
+
+* Frontend: https://101472499-comp3133-assignment2.vercel.app/login
+* Backend: https://one01472499-comp3133-assignment2.onrender.com/graphql
+
+## GitHub Repository
+
+https://github.com/LynxGVA/101472499_comp3133_assignment2
+
+## Application Screens
+
+* Login
+* Signup
+* Employee List
+* Add Employee
+* View Employee Details
+* Update Employee
+* Search Results
+
+## Validation and Error Handling
+
+The application includes validation and error handling for:
+
+* required fields
+* invalid email format
+* password validation
+* backend GraphQL errors
+* employee form validation messages
+* image upload size handling
+
+## How to Run Locally
+
+### Frontend
+
+npm install
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Backend
 
-## Code scaffolding
+cd backend
+npm install
+npm start
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Backend Environment Variables
 
-```bash
-ng generate component component-name
-```
+Create a `.env` file inside the backend folder and add:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+PORT=4000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 
-```bash
-ng generate --help
-```
+## Notes
 
-## Building
+* The frontend connects to the deployed backend GraphQL API
+* MongoDB Atlas is used as the cloud database
+* Render is used for backend deployment
+* Vercel is used for frontend deployment
 
-To build the project run:
+## Submission Contents
 
-```bash
-ng build
-```
+* GitHub repository link
+* deployed frontend link
+* deployed backend link
+* screenshots PDF
+* ZIP file without node_modules
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Author
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Viktor Grygoriev
