@@ -6,7 +6,7 @@ import { Auth } from './auth'
   providedIn: 'root'
 })
 export class GraphqlService {
-  apiUrl = 'http://localhost:4000/graphql'
+  apiUrl = 'https://one01472499-comp3133-assignment2.onrender.com/graphql'
 
   constructor(private auth: Auth) {}
 
